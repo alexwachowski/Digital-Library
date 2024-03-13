@@ -38,10 +38,7 @@ let isbnNumber = [];
 const dataBase = await db.query("SELECT * FROM books ORDER BY id ASC");
 const books = dataBase.rows;
 
-// for (let items in books){
-//     const info = await axios.get (`https://openlibrary.org/search.json?title=${books.title}`);
-//     isbnNumber = push(info.data.docs[0].isbn[2]);
-// }
+
 
 app.get("/", async (req, res) => {
     try {
