@@ -1,0 +1,81 @@
+<!-- views/index.ejs -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head> -->
+<%- include('partials/header.ejs') %>
+<body>
+
+
+<section class="hero-section">
+  
+  <div class="card-grid">
+    <% for(let i = 0; i < ISBN.length; i++) { %>
+    <% const isbn = ISBN[i]; %>
+    <% const result = `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`;%>
+    <%# console.log(Library[i].bio, "from ejs") %>
+    <a class="card" href="/books?title=<%= (Library[i].title) %>&author=<%= (Library[i].author) %>&isbn=<%= (isbn) %>&id=<% (Library[i].id) %>">
+        <div class="card__background" style="<%= `background-image: url(${result})` %>"></div>
+    </a>
+<% } %>
+    <!-- <a class="card" href="#">
+      <div class="card__background" style="background-image: url(https://i.im.ge/2022/12/09/dMZqZx.vertical-shot-lake-marian-mountains-new-zealand.jpg)"></div>
+      <div class="card__content">
+        <p class="card__category">Places</p>
+        <h3 class="card__heading">Mountains</h3>
+      </div>
+    </a>
+    <a class="card" href="#">
+      <div class="card__background" style="background-image: url(https://i.im.ge/2022/12/09/dMKfLM.vertical-shot-beautiful-green-valley-cloudy-sky.jpg)"></div>
+      <div class="card__content">
+        <p class="card__category">Places</p>
+        <h3 class="card__heading">Countryside</h3>
+      </div>
+    </li>
+    <a class="card" href="#">
+      <div class="card__background" style="background-image: url(https://i.im.ge/2022/12/09/dMVfWG.beautiful-views-azure-coast-rocks-pine-trees-white-sand-aegean-sea-turkey-kusadasi.jpg)"></div>
+      <div class="card__content">
+        <p class="card__category">Places</p>
+        <h3 class="card__heading">Beach</h3>
+      </div>
+    </a> -->
+    <div class="btn-container">
+      <button class="btn" id="addBookButton">add book</button>
+      <form action="/addbook" method="post">
+      <input type="text" id="bookInput" class="hidden" placeholder="Enter book title">
+      <input type="text" id="authorInput" class="hidden" placeholder="Enter Author">
+      <button class="btn hidden" type="submit" id="doneButton">Done</button>
+      </form>
+      </div>
+  </div>
+  
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get the button and input field elements
+    var addButton = document.getElementById("addBookButton");
+    var bookInput = document.getElementById("bookInput");
+    var doneButton = document.getElementById("doneButton");
+    var authorInput = document.getElementById("authorInput");
+
+    // Add click event listener to the button
+    addButton.addEventListener("click", function () {
+      // Toggle the visibility of the input field
+      bookInput.classList.toggle("hidden");
+    });
+
+    addButton.addEventListener("click", function () {
+      doneButton.classList.toggle("hidden");
+    });
+
+    addButton.addEventListener("click", function () {
+      authorInput.classList.toggle("hidden");
+    });
+  });
+</script>
+</body>
+</html>

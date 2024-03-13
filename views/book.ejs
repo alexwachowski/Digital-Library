@@ -1,0 +1,29 @@
+<%- include('partials/header.ejs') %>
+
+<html>
+
+<body>
+
+     
+<section class="hero-section">
+    
+    <div class="glass-card flex-row">
+        <img src="<%= (locals.picture) %>" alt="Your Image Description" id="bookPicture">
+            <div class="flex-column">
+                <h1> <%= (locals.Title) %></h1>
+                <h2> by <%= (locals.Author) %> </h2>
+                <div class="text-field">
+                    <p id="bookNotes">
+                        <!-- Your text here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. -->
+                        <%= (locals.bio) %>
+                    </p>
+                </div>
+            </div>
+
+        
+    </div>
+ </section> 
+
+</body>
+
+</html>
